@@ -1,7 +1,215 @@
-<!--Crédit Mutuel CCM de La Roche sur Foron 
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Don par virement — Cœurs de Lévriers</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      .don-page {
+        max-width: 700px;
+        margin: 6rem auto 4rem;
+        padding: 0 2rem;
+      }
 
-Compte Numéro : 00020529201 Clé : 68
+      .don-page h1 {
+        font-size: 2.2rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
 
-IBAN (International Bank Account Number)
+      .don-page .subtitle {
+        color: var(--light-text);
+        margin-bottom: 3rem;
+        font-size: 1.05rem;
+      }
 
-FR76 10278024200002052920168 / BIC : CMCIFR2A-->
+      .rib-card {
+        background: var(--white);
+        border-radius: 16px;
+        box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .rib-card h2 {
+        color: var(--primary);
+        font-size: 1.3rem;
+        margin-bottom: 1.8rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--light-bg);
+      }
+
+      .rib-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.9rem 0;
+        border-bottom: 1px solid #f0ebe6;
+        gap: 1rem;
+      }
+
+      .rib-row:last-child {
+        border-bottom: none;
+      }
+
+      .rib-label {
+        font-weight: bold;
+        color: var(--dark-text);
+        font-size: 0.9rem;
+        min-width: 140px;
+      }
+
+      .rib-value {
+        color: var(--light-text);
+        font-family: "Courier New", monospace;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        word-break: break-all;
+      }
+
+      .copy-btn {
+        background: var(--light-bg);
+        border: none;
+        border-radius: 6px;
+        padding: 0.3rem 0.7rem;
+        cursor: pointer;
+        font-size: 0.8rem;
+        color: var(--primary);
+        transition: background 0.2s;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .copy-btn:hover {
+        background: var(--secondary);
+        color: white;
+      }
+
+      .copy-btn.copied {
+        background: #4caf50;
+        color: white;
+      }
+
+      .notice {
+        background: #fff8f0;
+        border-left: 4px solid var(--accent);
+        padding: 1.2rem 1.5rem;
+        border-radius: 0 10px 10px 0;
+        color: var(--light-text);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        transition: color 0.2s;
+      }
+
+      .back-link:hover {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span>Cœurs de Lévriers</span>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="../index.html#accueil">Accueil</a></li>
+          <li><a href="../index.html#association">L'Association</a></li>
+          <li><a href="../index.html#soutenir">Nous Soutenir</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <div class="nav-toggle" id="navToggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
+
+    <div class="don-page">
+      <a href="../index.html#soutenir" class="back-link">← Retour aux dons</a>
+
+      <h1>💙 Don par virement bancaire</h1>
+      <p class="subtitle">
+        Effectuez un virement directement sur le compte de l'association. Toute l'équipe vous remercie pour votre soutien.
+      </p>
+
+      <div class="rib-card">
+        <h2>Coordonnées bancaires</h2>
+
+        <div class="rib-row">
+          <span class="rib-label">Banque</span>
+          <span class="rib-value">Crédit Mutuel — CCM de La Roche sur Foron</span>
+        </div>
+
+        <div class="rib-row">
+          <span class="rib-label">Titulaire</span>
+          <span class="rib-value">Association Cœurs de Lévriers</span>
+        </div>
+
+        <div class="rib-row">
+          <span class="rib-label">N° de compte</span>
+          <span class="rib-value">00020529201 — Clé 68</span>
+        </div>
+
+        <div class="rib-row">
+          <span class="rib-label">IBAN</span>
+          <span class="rib-value" id="iban">FR76 1027 8024 2000 0205 2920 168</span>
+          <button class="copy-btn" onclick="copyIban()">Copier</button>
+        </div>
+
+        <div class="rib-row">
+          <span class="rib-label">BIC / SWIFT</span>
+          <span class="rib-value">CMCIFR2A</span>
+        </div>
+      </div>
+
+      <div class="notice">
+        ℹ️ <strong>Libellé conseillé :</strong> indiquez votre nom + « Don Cœurs de Lévriers » dans le libellé du virement pour que nous puissions identifier votre geste.<br/><br/>
+        🧾 Si vous souhaitez un reçu fiscal pour déduction d'impôts, contactez-nous par email à <a href="mailto:coeursdelevriers@gmail.com">coeursdelevriers@gmail.com</a> après votre virement.
+      </div>
+
+      <a href="../index.html#soutenir" class="btn">Voir les autres moyens de don</a>
+    </div>
+
+    <footer>
+      <div class="footer-bottom" style="padding: 1.5rem 2rem;">
+        <p>&copy; 2026 Association Coeurs de Lévriers — Tous droits réservés</p>
+      </div>
+    </footer>
+
+    <script>
+      function copyIban() {
+        const iban = document.getElementById("iban").textContent.replace(/\s/g, "");
+        navigator.clipboard.writeText(iban).then(() => {
+          const btn = document.querySelector(".copy-btn");
+          btn.textContent = "✓ Copié !";
+          btn.classList.add("copied");
+          setTimeout(() => {
+            btn.textContent = "Copier";
+            btn.classList.remove("copied");
+          }, 2000);
+        });
+      }
+
+      // Mobile menu
+      document.getElementById("navToggle").addEventListener("click", () => {
+        document.getElementById("navMenu").classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

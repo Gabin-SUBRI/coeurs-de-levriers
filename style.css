@@ -126,6 +126,10 @@ body {
   font-weight: bold;
   transition: all 0.3s;
   box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  border: none;
+  cursor: pointer;
+  font-family: "Georgia", serif;
+  font-size: 1rem;
 }
 
 .btn:hover {
@@ -266,15 +270,6 @@ body {
   justify-content: center;
 }
 
-.fb-placeholder {
-  background: #f0f2f5;
-  padding: 3rem;
-  border-radius: 10px;
-  text-align: center;
-  color: var(--light-text);
-  border: 2px dashed #ddd;
-}
-
 /* Donation Section */
 .donation-section {
   background: linear-gradient(135deg, var(--accent), #ff8e8e);
@@ -285,7 +280,7 @@ body {
 }
 
 .donation-content {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -307,7 +302,8 @@ body {
   backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 15px;
-  min-width: 250px;
+  min-width: 220px;
+  max-width: 260px;
   transition: all 0.3s;
 }
 
@@ -329,6 +325,120 @@ body {
 .btn-white:hover {
   background: var(--light-bg);
   color: var(--primary);
+}
+
+/* =====================
+   SECTION CONTACT
+   ===================== */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.contact-info-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.contact-info-block h4 {
+  color: var(--primary);
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.contact-info-block p,
+.contact-info-block a {
+  color: var(--light-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+}
+
+.contact-info-block a:hover {
+  color: var(--accent);
+}
+
+.contact-form-wrapper {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: var(--dark-text);
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.8rem 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-family: "Georgia", serif;
+  font-size: 1rem;
+  color: var(--dark-text);
+  background: var(--light-bg);
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+  background: var(--white);
+}
+
+.contact-submit {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.form-note {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--light-text);
+  min-height: 1.2rem;
+}
+
+.form-note.success {
+  color: #4caf50;
+  font-weight: bold;
 }
 
 /* Footer */
@@ -388,29 +498,26 @@ footer {
 
 .footer-bottom {
   text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.6);
-}
-.footer-bottom {
   padding: 20px 30px;
-  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer-bottom p {
   margin: 5px 0;
-  color: var(--text-dark);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
 }
 
 .footer-bottom a {
-  color: var(--primary-green-light);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   transition: color 0.3s ease;
 }
+
 .footer-bottom a:hover {
-  text-decoration: none;
+  color: var(--white);
 }
+
 /* Responsive */
 @media (max-width: 768px) {
   .nav-menu {
@@ -457,5 +564,9 @@ footer {
 
   .donation-section h2 {
     font-size: 1.8rem;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
   }
 }
