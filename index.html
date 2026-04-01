@@ -129,11 +129,22 @@
           src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100064422502550&tabs=timeline&width=500&height=600&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
           width="500"
           height="600"
-          style="border: none; overflow: hidden; border-radius: 10px; max-width: 100%;"
+          style="
+            border: none;
+            overflow: hidden;
+            border-radius: 10px;
+            max-width: 100%;
+          "
           scrolling="no"
           frameborder="0"
           allowfullscreen="true"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          allow="
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            picture-in-picture;
+            web-share;
+          "
         ></iframe>
       </div>
     </section>
@@ -174,7 +185,10 @@
           <div class="donation-card">
             <h3>Virement bancaire</h3>
             <p>Don par virement directement sur notre compte association</p>
-            <a href="page/don.html" class="btn btn-white" style="margin-top: 1rem"
+            <a
+              href="page/don.html"
+              class="btn btn-white"
+              style="margin-top: 1rem"
               >Voir le RIB</a
             >
           </div>
@@ -215,7 +229,11 @@
             <div class="contact-icon">✉️</div>
             <div>
               <h4>Email</h4>
-              <p><a href="mailto:coeursdelevriers@gmail.com">coeursdelevriers@gmail.com</a></p>
+              <p>
+                <a href="mailto:coeursdelevriers@gmail.com"
+                  >coeursdelevriers@gmail.com</a
+                >
+              </p>
             </div>
           </div>
           <div class="contact-info-block">
@@ -231,16 +249,38 @@
         <div class="contact-form-wrapper">
           <form
             class="contact-form"
-            action="https://formspree.io/f/xreykzny"
+            id="contactForm"
+            action="https://api.web3forms.com/submit"
             method="POST"
           >
+            <input
+              type="hidden"
+              name="access_key"
+              value="6078fad2-0893-4263-be24-97d6f3638e9b"
+            /><input
+              type="hidden"
+              name="subject"
+              value="Nouveau message — Cœurs de Lévriers"
+            /><input type="checkbox" name="botcheck" style="display: none" />
             <div class="form-group">
               <label for="name">Nom complet</label>
-              <input type="text" id="name" name="name" placeholder="Votre nom" required />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Votre nom"
+                required
+              />
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="votre@email.com" required />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="votre@email.com"
+                required
+              />
             </div>
             <div class="form-group">
               <label for="subject">Sujet</label>
@@ -254,9 +294,18 @@
             </div>
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Votre message..."
+                required
+              ></textarea>
             </div>
-            <button type="submit" class="btn contact-submit">Envoyer le message</button>
+            <button type="submit" class="btn contact-submit">
+              Envoyer le message
+            </button>
+            <p class="form-note" id="formResult"></p>
           </form>
         </div>
       </div>

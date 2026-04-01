@@ -27,4 +27,38 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
+//formulaire
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const btn = contactForm.querySelector('button[type="submit"]');
+    const result = document.getElementById("formResult");
 
+    btn.disabled = true;
+    btn.textContent = "Envoi en cours…";
+
+    const data = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(Object.fromEntries(new FormData(contactForm))),
+    }).then((r) => r.json());
+
+    if (data.success) {
+      result.textContent =
+        "✅ Message envoyé ! Nous vous répondrons rapidement.";
+      result.classList.add("success");
+      contactForm.reset();
+    } else {
+      result.textContent =
+        "❌ Erreur lors de l'envoi. Merci de réessayer ou de nous appeler.";
+      result.style.color = "var(--accent)";
+    }
+
+    btn.disabled = false;
+    btn.textContent = "Envoyer le message";
+  });
+}
